@@ -32,7 +32,12 @@ export default {
     // loaders allow for preprocessing of files
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader'] }, // preprocessing the .js files with babel-loader
-      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] } // preprocessing css files
+      // Used for Bootstrap Less Source Files
+      { test: /\.less/, loader: 'style-loader!css!less-loader' },
+      // Used for Bootstrap Less Source Files
+      { test: /\.css/, loader: 'style-loader!css-loader' },
+      // Used for Bootstrap Glyphicon Fonts
+      { test: /\.(woff2|woff|ttf|svg|eot)$/, loader: 'file-loader' }
     ]
   }
 };
